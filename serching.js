@@ -22,6 +22,22 @@ function binarySearch(arr,key){
 
 console.log(binarySearch([2,3,5,4,7,6],3));
 
+// function recurssiveBinary(arr,key,start,end){
+//     if(start>end){
+//         return -1
+//     }
+
+//     let mid=Math.floor(start+end/2)
+
+//     if(arr[mid]===key){
+//         return mid
+//     }else if(arr[mid]<key){
+//       return  recurssiveBinary(arr,key,mid+1,end)
+//     }else{
+//         return  recurssiveBinary(arr,key,start,mid+1)
+//     }
+// }
+
 function recurssiveBinary(arr,key,start,end){
     if(start>end){
         return -1
@@ -30,12 +46,14 @@ function recurssiveBinary(arr,key,start,end){
     let mid=Math.floor(start+end/2)
 
     if(arr[mid]===key){
-        return mid
+        return arr[mid]
     }else if(arr[mid]<key){
-      return  recurssiveBinary(arr,key,mid+1,end)
+        return recurssiveBinary(arr,key,mid+1,end)
     }else{
-        return  recurssiveBinary(arr,key,start,mid+1)
+        return recurssiveBinary(arr,key,start,mid+1)
     }
+
+
 }
 
 let arr=[1,2,4,3,5,6]

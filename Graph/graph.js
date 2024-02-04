@@ -134,7 +134,7 @@
 
   
 
-// // adavantage
+ // adavantage
 // Graph algorithms are often very efficient and can be used to solve complex problems quickly and effectively.
 // Graphs can be used to represent complex data structures in a simple and intuitive way, making them easier to understand and analyze.
 // They can be used to model and solve a wide range of problems, including pathfinding, data clustering, network analysis, and machine learning.
@@ -143,3 +143,13 @@
 // Graphs can be complex and difficult to understand, especially for people who are not familiar with graph theory or related algorithms.
 // Graph algorithms can be difficult to design and implement correctly, and can be prone to bugs and errors.
 // Graphs can be difficult to visualize and analyze, especially for very large or complex graphs, which can make it challenging to extract meaningful insights from the data. 
+
+
+// topoligical sorting
+
+// Topological sorting is an ordering of the vertices of a directed acyclic graph (DAG) in such a way that for every directed edge (u, v), 
+// vertex u comes before vertex v in the ordering.
+
+
+
+//  it's a linear ordering of the vertices that respects the partial order defined by the directed edges of the graph.

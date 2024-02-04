@@ -3,25 +3,26 @@ class Graph{
         this.adjacentList={}
     }
 
-    addVertex(vertex){
-        if(!this.adjacentList[vertex]){
-            this.adjacentList[vertex]=new Set()
-        }
+   addvertex(v){
+    if(!this.adjacentList[v]){
+        this.adjacentList[v]=new Set()
+    }
+   }
+
+   addEdges(v1,v2){
+    if(!this.adjacentList[v1]){
+        this.addvertex(v1)
     }
 
-    addEdges(v1,v2){
-        if(!this.adjacentList[v1]){
-            this.addVertex(v1)
-        }
-
-        if(!this.adjacentList[v2]){
-            this.addVertex(v2)
-        }
-
-        this.adjacentList[v1].add(v2)
-        this.adjacentList[v2].add(v1)
-
+    if(!this.adjacentList[v2]){
+        this.addvertex(v2)
     }
+
+    this.adjacentList[v1].add(v2)
+    this.adjacentList[v1].add(v2)
+    
+
+   }
 
     printGraph(){
         for(let key in this.adjacentList){
@@ -29,40 +30,26 @@ class Graph{
         }
     }
 
-    removeEdges(v1,v2){
-        this.adjacentList[v1].delete(v2)
-        this.adjacentList[v2].delete(v1)
-    }
-
-
 Bfs(start){
-    if(!this.adjacentList[start]){
-        return "not defined start"
-    }
-
-    let visted={}
     let result=[]
     let queue=[start]
-    visted[start]=true
 
-    while(queue.length>0){
-        let current=queue.shift()
-        result.push(current)
+    let visited={}
+    visited[start]=true
 
-        for(let key of this.adjacentList[current]){
-            if(!visted[key]){
+    while(queue.length){
+        let curr=queue.shift()
+        result.push(curr)
+
+        for(let key of this.adjacentList[curr]){
+            if(!visited[key]){
                 queue.push(key)
-              visted[key]=true
-            
-
+                visited[key]=true
             }
         }
     }
-
     return result
-
 }
-
 
 
 dfs(start){
@@ -91,17 +78,23 @@ dfs(start){
 }
 
 
-    removeVertix(vertex) {
-        if (!this.adjacentList[vertex]) {
-            return "Vertex not found";
-        }
-    
-      for(const verte in this.adjacentList[vertex]){
-        this.removeEdges(vertex,verte)
-      }
-    delete this.adjacentList[vertex]
-        return "Vertex removed";
+removeEdges(v1,v2){
+    this.adjacentList[v1].delete(v2)
+    this.adjacentList[v2].delete(v1)
+}
+
+removeVertex(vertex){
+    if(!this.adjacentList[vertex]){
+        return "vertex not find"
     }
+
+    for(const key of this.adjacentList[vertex]){
+        this.removeEdges(vertex,key)
+    }
+
+    delete this.adjacentList[vertex]
+}
+
   
 }
 

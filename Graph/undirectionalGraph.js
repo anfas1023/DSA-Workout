@@ -69,6 +69,7 @@ bfs(startVertex){
 }
 
 
+
 dfs(startVertex){
 if(!this.vertixes[startVertex]){
   return "No Vertexes are found"
@@ -98,9 +99,7 @@ return result
     printGraph() {
       for (let key in this.vertixes) {
           console.log(`${key} --> ${[...this.vertixes[key]].join(', ')}`);
-      }
-
-    
+      } 
   }
 }
 
